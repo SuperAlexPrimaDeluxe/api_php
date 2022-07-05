@@ -1,24 +1,12 @@
 <?php
 include 'config.php';
-include 'headers.php';
-// myPrint_r($_GET);
+myPrint_r($_GET);
 $sql = "SELECT * FROM news WHERE id = " . $_GET['id_news'];
 $result = $connect->query($sql);
 echo $connect->error;
-if($result->num_rows > 0 ) :
 $theNews = $result->fetch_all(MYSQLI_ASSOC);
-$theNews['data'] = $theNews[0];
-unset($theNews[0]);
-$theNews['response'] = "OK";
-$thenews['code'] = 200;
-// $nb_rows = $result->num_rows;
-// myPrint_r($result);
-else : 
-    $theNews['response'] = "Error GTOS";
-    $thenews['code'] = 404;
-endif;
-echo json_encode($theNews);
-exit;
+$nb_rows = $result->num_rows;
+myPrint_r($result);
 
 ?>
 <!DOCTYPE html>
