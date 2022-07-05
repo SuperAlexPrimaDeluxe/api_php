@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteRule perdu.html$ trouve.html [L]
+RewriteRule promo.html$ produits/food/biscuit.html [L]
+
+RewriteRule news/([0-9]+)$ details-news.php?id_news=$1 [L]
